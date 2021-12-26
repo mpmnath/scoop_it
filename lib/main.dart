@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:the_scoop/routes/routes.dart';
-import 'package:the_scoop/screens/feed/news_feed.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,7 +21,7 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.dark,
         primarySwatch: Colors.orange,
       ),
-      initialRoute: '/',
+      initialRoute: '/account',
       routes: routes,
     );
   }

@@ -49,7 +49,7 @@ class DrawerMain extends StatelessWidget {
                 ),
               ),
             ),
-            const Expanded(
+            Expanded(
               child: SingleChildScrollView(
                 child: CategoriesDrawer(),
               ),

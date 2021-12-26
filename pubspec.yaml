@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   webview_flutter: ^3.0.0
   auth_buttons: ^2.0.3
+  supabase_flutter: ^0.2.9
 
 dev_dependencies:
   flutter_test:

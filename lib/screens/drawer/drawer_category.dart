@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:the_scoop/services/supabase_api.dart';
 
+// ignore: must_be_immutable
 class CategoriesDrawer extends StatelessWidget {
-  const CategoriesDrawer({Key? key}) : super(key: key);
+  CategoriesDrawer({Key? key}) : super(key: key);
 
+  SupaBaseManager supabase = SupaBaseManager();
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,50 +29,62 @@ class CategoriesDrawer extends StatelessWidget {
                 alignment: WrapAlignment.start,
                 children: [
                   _categories(
+                    context: context,
                     title: "Stocks",
                     image: 'https://picsum.photos/250?image=10',
                   ),
                   _categories(
+                    context: context,
                     title: "Mutual Funds",
                     image: 'https://picsum.photos/250?image=10',
                   ),
                   _categories(
+                    context: context,
                     title: "SIP",
                     image: 'https://picsum.photos/250?image=10',
                   ),
                   _categories(
+                    context: context,
                     title: "Futures",
                     image: 'https://picsum.photos/250?image=10',
                   ),
                   _categories(
+                    context: context,
                     title: "Options",
                     image: 'https://picsum.photos/250?image=10',
                   ),
                   _categories(
+                    context: context,
                     title: "IPO",
                     image: 'https://picsum.photos/250?image=10',
                   ),
                   _categories(
+                    context: context,
                     title: "NFO",
                     image: 'https://picsum.photos/250?image=10',
                   ),
                   _categories(
+                    context: context,
                     title: "Crypto",
                     image: 'https://picsum.photos/250?image=10',
                   ),
                   _categories(
+                    context: context,
                     title: "Bitcoin",
                     image: 'https://picsum.photos/250?image=10',
                   ),
                   _categories(
+                    context: context,
                     title: "Ethereum",
                     image: 'https://picsum.photos/250?image=10',
                   ),
                   _categories(
+                    context: context,
                     title: "NFT",
                     image: 'https://picsum.photos/250?image=10',
                   ),
                   _categories(
+                    context: context,
                     title: "Web 3.0",
                     image: 'https://picsum.photos/250?image=10',
                   ),
@@ -82,11 +97,20 @@ class CategoriesDrawer extends StatelessWidget {
     );
   }
 
-  Widget _categories({required String title, required String image}) {
+  Widget _categories(
+      {required BuildContext context,
+      required String title,
+      required String image}) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(10.0),
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          Navigator.pushNamed(
+            context,
+            '/',
+            arguments: supabase.getStockNews(),
+          );
+        },
         child: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
