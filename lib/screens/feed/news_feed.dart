@@ -22,7 +22,7 @@ class _NewsFeedState extends State<NewsFeed> {
   @override
   void initState() {
     super.initState();
-    print(news.fetchNews());
+    //print(news.fetchNews());
   }
 
   @override
