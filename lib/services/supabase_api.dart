@@ -9,10 +9,15 @@ class SupaBaseManager {
   final client = SupabaseClient(supabaseUrl, supabaseKey);
 
   Future getData() async {
-    final selectResponse = await client.from('news').select().execute();
+    final selectResponse = await client
+        .from('news')
+        .select()
+        .order('id', ascending: false)
+        .execute();
     if (selectResponse.error == null) {
       //print('response.data: ${selectResponse.data}');
     }
+    print(selectResponse.toJson());
     return selectResponse.toJson();
   }
 

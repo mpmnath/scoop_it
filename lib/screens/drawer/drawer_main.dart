@@ -7,7 +7,8 @@ class DrawerMain extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Ink(
+      child: Material(
+        elevation: 0.0,
         color: Colors.orange,
         child: Column(
           children: [

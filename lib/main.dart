@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.dark,
         primarySwatch: Colors.orange,
       ),
-      initialRoute: '/account',
+      initialRoute: '/',
       routes: routes,
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:the_scoop/screens/feed/new_webview.dart';
 
 // ignore: must_be_immutable
@@ -16,7 +17,7 @@ class NewsCard extends StatefulWidget {
 }
 
 class _NewsCardState extends State<NewsCard> {
-  bool showAppBar = false;
+  bool showAppBar = true;
 
   @override
   Widget build(BuildContext context) {
@@ -62,11 +63,26 @@ class _NewsCardState extends State<NewsCard> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Text(
-                      widget.data['title'],
-                      style: const TextStyle(
-                        fontWeight: FontWeight.w700,
-                        fontSize: 20,
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute<dynamic>(
+                              builder: (BuildContext context) {
+                            return NewsWebView(
+                              //controller: _controller,
+                              data: widget.data,
+                            );
+                          }),
+                        );
+                      },
+                      splashColor: Colors.blue,
+                      child: Text(
+                        widget.data['title'],
+                        style: const TextStyle(
+                          fontWeight: FontWeight.w700,
+                          fontSize: 20,
+                        ),
                       ),
                     ),
                     const SizedBox(
@@ -93,10 +109,10 @@ class _NewsCardState extends State<NewsCard> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      widget.data['author'],
+                      'Author: ${widget.data['author']}',
                       style: const TextStyle(
                         fontWeight: FontWeight.w300,
-                        fontSize: 12,
+                        fontSize: 10,
                       ),
                     ),
                     Text(
@@ -105,16 +121,16 @@ class _NewsCardState extends State<NewsCard> {
                       "${DateTime.parse(widget.data['created_at']).year}",
                       style: const TextStyle(
                         fontWeight: FontWeight.w300,
-                        fontSize: 12,
+                        fontSize: 10,
                       ),
                     ),
                   ],
                 ),
               ),
             ),
-            Text(
+            /*Text(
               widget.data['tag'].toString(),
-            ),
+            ),*/
             InkWell(
               //onTap: () => controller.jumpToPage(2),
               onTap: () {
