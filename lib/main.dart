@@ -1,3 +1,5 @@
+//Scoop It is a new scrolling app that makes reading daily news more intuitive  
+
 import 'package:flutter/material.dart';
 import 'package:the_scoop/routes/routes.dart';
 
